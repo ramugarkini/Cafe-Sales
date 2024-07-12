@@ -73,7 +73,7 @@ void OutboundWidget::refreshOutboundTableView(const QString& qry_clause/*=""*/)
         "amount as %3, time as %4 "
         "FROM Outbound WHERE otime IS NULL";
     QString view_outbound = s.arg(
-        tr("Name"), tr("Category"), tr("Amount"), tr("Time")) + qry_clause;
+        tr("Name"), tr("Category"), tr("Quantity"), tr("Time")) + qry_clause;
     qDebug() << view_outbound;
     modelOutbound->setQuery(view_outbound);
     ui->tableViewOutbound->setModel(modelOutbound);

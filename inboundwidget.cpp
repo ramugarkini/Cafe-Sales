@@ -56,7 +56,7 @@ void InboundWidget::refreshInboundTableView(const QString& qry_clause/*=""*/)
     QString s = "SELECT name AS %1, cate AS %2, "
         "amount as %3, time as %4 FROM Inbound";
     QString view_inbound = s.arg(
-        tr("Name"), tr("Category"), tr("Amount"), tr("Time")) + qry_clause;
+        tr("Name"), tr("Category"), tr("Quantity"), tr("Time")) + qry_clause;
     qDebug() << view_inbound;
     modelInbound->setQuery(view_inbound);
     ui->tableViewInbound->setModel(modelInbound);

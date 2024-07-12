@@ -25,7 +25,7 @@ private:
     void refreshOutbound2TableView(const QString& qry_clause = "");
 
 public slots:
-    void refreshCategoryComboBox();
+    // void refreshCategoryComboBox();
     void on_pushButtonQuery_clicked();
 };
 

@@ -6,6 +6,7 @@
 #include "inboundwidget.h"
 #include "outboundwidget.h"
 #include "outbound2widget.h"
+#include "outbound3widget.h"
 #include "staffwidget.h"
 #include "userswidget.h"
 
@@ -28,6 +29,7 @@ private:
     InboundWidget *inbound;
     OutboundWidget *outbound;
     Outbound2Widget *outbound2;
+    Outbound3Widget *outbound3;
     StaffWidget *staff;
     UsersWidget *users;
 };
