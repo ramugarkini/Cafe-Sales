@@ -24,9 +24,13 @@ private:
     QSqlQueryModel *modelCategory;
     void refreshOutboundTableView(const QString& qry_clause = "");
 
+signals:
+    void outbounded();
+
 public slots:
     void refreshCategoryComboBox();
     void on_pushButtonQuery_clicked();
+    void on_pushButtonOutbound2_clicked();
 };
 
 #endif // OUTBOUNDWIDGET_H

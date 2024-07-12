@@ -34,7 +34,7 @@ InventoryWidget::InventoryWidget(QWidget *parent) :
 
     // If no outbound table yet, create it.
     s = "CREATE TABLE IF NOT EXISTS Outbound ("
-        "name char(%1), cate char(%2), amount int, time char(20) PRIMARY KEY)";
+        "name char(%1), cate char(%2), amount int, time char(20) PRIMARY KEY, otime char(20))";
     QString create_outbound_table = s.arg(
         QString::number(ITEMNAME_MAX_LEN), QString::number(CATEGORY_MAX_LEN));
     qDebug() << create_outbound_table << qry->exec(create_outbound_table);
@@ -108,7 +108,7 @@ void InventoryWidget::on_pushButtonOutbound_clicked()
         refreshInventoryTable();
         qDebug() << "Logging outbound...";
         s = "INSERT INTO Outbound VALUES("
-            "'%1', '%2', %3, datetime('now', 'localtime'))";
+            "'%1', '%2', %3, datetime('now', 'localtime'), NULL)";
         QString log_outbound = s.arg(name, cate, QString::number(decrement));
         qDebug() << log_outbound << qry->exec(log_outbound);
         outbounded();

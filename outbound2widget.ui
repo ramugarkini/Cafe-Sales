@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>OutboundWidget</class>
- <widget class="QWidget" name="OutboundWidget">
+ <class>Outbound2Widget</class>
+ <widget class="QWidget" name="Outbound2Widget">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -10,7 +10,7 @@
     <height>480</height>
    </rect>
   </property>
-  <layout class="QGridLayout" name="gridLayoutOutbound" columnstretch="6,4">
+  <layout class="QGridLayout" name="gridLayoutOutbound2" columnstretch="6,4">
    <item row="1" column="1">
     <layout class="QVBoxLayout">
      <property name="spacing">
@@ -34,7 +34,7 @@
         <widget class="QComboBox" name="comboBoxCategory"/>
        </item>
        <item row="0" column="2">
-        <widget class="QLineEdit" name="lineEditNameKey">
+        <widget class="QLineEdit" name="lineEditOrderIDKey">
          <property name="clearButtonEnabled">
           <bool>true</bool>
          </property>
@@ -48,9 +48,9 @@
         </widget>
        </item>
        <item row="0" column="1">
-        <widget class="QCheckBox" name="checkBoxName">
+        <widget class="QCheckBox" name="checkBoxOrderID">
          <property name="text">
-          <string>Search Name</string>
+          <string>Search OrderID</string>
          </property>
         </widget>
        </item>
@@ -64,13 +64,6 @@
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="pushButtonOutbound2">
-       <property name="text">
-        <string>Confirm Order</string>
-       </property>
-      </widget>
-     </item>
-     <item>
       <spacer name="spacer">
        <property name="orientation">
         <enum>Qt::Vertical</enum>
@@ -80,7 +73,7 @@
     </layout>
    </item>
    <item row="1" column="0">
-    <widget class="QTableView" name="tableViewOutbound">
+    <widget class="QTableView" name="tableViewOutbound2">
      <property name="editTriggers">
       <set>QAbstractItemView::NoEditTriggers</set>
      </property>

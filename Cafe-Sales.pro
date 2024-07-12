@@ -28,6 +28,7 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     logindialog.cpp \
+    outbound2widget.cpp \
     staffwidget.cpp \
     userswidget.cpp \
     inventorywidget.cpp \
@@ -38,6 +39,7 @@ HEADERS += \
     mainwindow.h \
     logindialog.h \
     const.h \
+    outbound2widget.h \
     staffwidget.h \
     userswidget.h \
     inventorywidget.h \
@@ -47,6 +49,7 @@ HEADERS += \
 FORMS += \
     mainwindow.ui \
     logindialog.ui \
+    outbound2widget.ui \
     staffwidget.ui \
     userswidget.ui \
     inventorywidget.ui \

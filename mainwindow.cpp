@@ -8,6 +8,7 @@ MainWindow::MainWindow(QWidget *parent) :
     inventory(new InventoryWidget(this)),
     inbound(new InboundWidget(this)),
     outbound(new OutboundWidget(this)),
+    outbound2(new Outbound2Widget(this)),
     staff(new StaffWidget(this)),
     users(new UsersWidget(this))
 {
@@ -15,8 +16,9 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
 
     ui->tabWidget->addTab(inventory, tr("Inventory"));
-    ui->tabWidget->addTab(inbound, tr("Added Items Report"));
-    ui->tabWidget->addTab(outbound, tr("Sales Report"));
+    ui->tabWidget->addTab(outbound, tr("Cart - Confirm Order"));
+    ui->tabWidget->addTab(outbound2, tr("Sales - Report"));
+    ui->tabWidget->addTab(inbound, tr("Added items in Inventory - Report"));
     ui->tabWidget->addTab(staff, tr("Staff Details"));
     ui->tabWidget->addTab(users, tr("Users"));
 
@@ -32,6 +34,16 @@ MainWindow::MainWindow(QWidget *parent) :
             outbound, &OutboundWidget::refreshCategoryComboBox);
     connect(inventory, &InventoryWidget::outbounded,
             outbound, &OutboundWidget::on_pushButtonQuery_clicked);
+
+    connect(inventory, &InventoryWidget::outbounded,
+            outbound2, &Outbound2Widget::refreshCategoryComboBox);
+    connect(inventory, &InventoryWidget::outbounded,
+            outbound2, &Outbound2Widget::on_pushButtonQuery_clicked);
+
+    connect(outbound, &OutboundWidget::outbounded, outbound, &OutboundWidget::refreshCategoryComboBox);
+    connect(outbound, &OutboundWidget::outbounded, outbound, &OutboundWidget::on_pushButtonQuery_clicked);
+    connect(outbound, &OutboundWidget::outbounded, outbound2, &Outbound2Widget::refreshCategoryComboBox);
+    connect(outbound, &OutboundWidget::outbounded, outbound2, &Outbound2Widget::on_pushButtonQuery_clicked);
 }
 
 MainWindow::~MainWindow()
@@ -41,6 +53,7 @@ MainWindow::~MainWindow()
     delete inventory;
     delete inbound;
     delete outbound;
+    delete outbound2;
     delete staff;
     delete users;
 }

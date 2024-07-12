@@ -77,7 +77,7 @@
      <item>
       <widget class="QPushButton" name="pushButtonInbound">
        <property name="text">
-        <string>Add Item</string>
+        <string>Add to Inventory</string>
        </property>
        <property name="autoDefault">
         <bool>true</bool>
@@ -128,7 +128,7 @@
      <item>
       <widget class="QPushButton" name="pushButtonOutbound">
        <property name="text">
-        <string>Sell</string>
+        <string>Add to Cart</string>
        </property>
       </widget>
      </item>
