@@ -47,6 +47,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     connect(outbound, &OutboundWidget::outbounded, outbound, &OutboundWidget::refreshCategoryComboBox);
     connect(outbound, &OutboundWidget::outbounded, outbound, &OutboundWidget::on_pushButtonQuery_clicked);
+    connect(outbound, &OutboundWidget::outbounded, outbound2, &Outbound2Widget::refreshOrderIDLineEdit);
     connect(outbound, &OutboundWidget::outbounded, outbound2, &Outbound2Widget::on_pushButtonQuery_clicked);
     connect(outbound, &OutboundWidget::outbounded, outbound3, &Outbound3Widget::refreshCategoryComboBox);
     connect(outbound, &OutboundWidget::outbounded, outbound3, &Outbound3Widget::on_pushButtonQuery_clicked);

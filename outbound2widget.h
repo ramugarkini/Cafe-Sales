@@ -27,6 +27,7 @@ private:
 public slots:
     // void refreshCategoryComboBox();
     void on_pushButtonQuery_clicked();
+    void refreshOrderIDLineEdit();
 };
 
 #endif // OUTBOUND2WIDGET_H

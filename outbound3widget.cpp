@@ -60,10 +60,10 @@ void Outbound3Widget::refreshOutbound3TableView(const QString& qry_clause/*=""*/
 {
     qDebug() << "Refreshing outbound3 table view...";
     QString s = "SELECT REPLACE(REPLACE(REPLACE(otime, '-', ''), ' ', ''), ':', '') as %1, otime as %2, "
-        "name AS %3, cate AS %4, amount as %5, time as %6 "
+        "name AS %4, cate AS %5, ppq as %6, quantity as %7, (ppq * quantity) AS %8 "
         "FROM Outbound WHERE otime IS NOT NULL";
     QString view_outbound3 = s.arg(
-        tr("OrderID"), tr("OrderTime"), tr("Name"), tr("Category"), tr("Quantity"), tr("CartEntryTime")) + qry_clause;
+        tr("OrderID"), tr("OrderTime"), tr("Name"), tr("Category"), tr("PricePerQuantity"), tr("Quantity"), tr("TotalPrice")) + qry_clause;
     qDebug() << view_outbound3;
     modelOutbound3->setQuery(view_outbound3);
     ui->tableViewOutbound3->setModel(modelOutbound3);

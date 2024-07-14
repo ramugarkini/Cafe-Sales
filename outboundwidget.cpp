@@ -69,11 +69,11 @@ void OutboundWidget::on_pushButtonOutbound2_clicked()
 void OutboundWidget::refreshOutboundTableView(const QString& qry_clause/*=""*/)
 {
     qDebug() << "Refreshing outbound table view...";
-    QString s = "SELECT name AS %1, cate AS %2, "
-        "amount as %3, time as %4 "
+    QString s = "SELECT time as %1, name AS %2, cate AS %3, "
+        "ppq as %4, quantity as %5, (ppq * quantity) AS %6  "
         "FROM Outbound WHERE otime IS NULL";
     QString view_outbound = s.arg(
-        tr("Name"), tr("Category"), tr("Quantity"), tr("Time")) + qry_clause;
+        tr("CartEntryTime"), tr("Name"), tr("Category"), tr("PricePerQuantity"), tr("Quantity"), tr("TotalPrice")) + qry_clause;
     qDebug() << view_outbound;
     modelOutbound->setQuery(view_outbound);
     ui->tableViewOutbound->setModel(modelOutbound);

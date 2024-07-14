@@ -44,13 +44,6 @@
          </property>
         </widget>
        </item>
-       <item row="2" column="1">
-        <widget class="QSpinBox" name="spinBoxInAmount">
-         <property name="minimum">
-          <number>1</number>
-         </property>
-        </widget>
-       </item>
        <item row="1" column="0">
         <widget class="QLabel" name="labelInCategory">
          <property name="text">
@@ -59,7 +52,14 @@
         </widget>
        </item>
        <item row="2" column="0">
-        <widget class="QLabel" name="labelInAmount">
+        <widget class="QLabel" name="labelInPpq">
+         <property name="text">
+          <string>Price Per Quantity</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="0">
+        <widget class="QLabel" name="labelInQuantity">
          <property name="text">
           <string>Quantity</string>
          </property>
@@ -69,6 +69,20 @@
         <widget class="QLineEdit" name="lineEditInCategory">
          <property name="clearButtonEnabled">
           <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1">
+        <widget class="QDoubleSpinBox" name="spinBoxInPpq">
+         <property name="minimum">
+          <number>1</number>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="1">
+        <widget class="QSpinBox" name="spinBoxInQuantity">
+         <property name="minimum">
+          <number>1</number>
          </property>
         </widget>
        </item>
@@ -110,14 +124,14 @@
         <widget class="QComboBox" name="comboBoxOutName"/>
        </item>
        <item row="1" column="1">
-        <widget class="QSpinBox" name="spinBoxOutAmount">
+        <widget class="QSpinBox" name="spinBoxOutQuantity">
          <property name="minimum">
           <number>1</number>
          </property>
         </widget>
        </item>
        <item row="1" column="0">
-        <widget class="QLabel" name="labelOutAmount">
+        <widget class="QLabel" name="labelOutQuantity">
          <property name="text">
           <string>Quantity</string>
          </property>
