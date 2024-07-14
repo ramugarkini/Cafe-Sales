@@ -2,15 +2,15 @@
 #include "outboundwidget.h"
 #include "ui_outboundwidget.h"
 #include <QtDebug>
-#include <QSqlError>
-#include <QSqlQuery>
-#include <QSqlDriver>
+#include <QSqlQueryModel>
+#include <QSqlRecord>
 
 OutboundWidget::OutboundWidget(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::OutboundWidget),
     qry(new QSqlQuery),
     modelOutbound(new QSqlQueryModel),
+    modelOutbound2(new QSqlQueryModel),
     modelCategory(new QSqlQueryModel)
 {
     qDebug() << "[Outbound Widget] Constructing...";
@@ -29,6 +29,7 @@ OutboundWidget::~OutboundWidget()
     delete ui;
     delete qry;
     delete modelOutbound;
+    delete modelOutbound2;
     delete modelCategory;
 }
 
@@ -113,6 +114,8 @@ void OutboundWidget::refreshOutboundTableView(const QString& qry_clause/*=""*/)
     qDebug() << view_outbound;
     modelOutbound->setQuery(view_outbound);
     ui->tableViewOutbound->setModel(modelOutbound);
+
+    refreshOrderTotalLabel();
 }
 
 void OutboundWidget::refreshCategoryComboBox()
@@ -121,4 +124,29 @@ void OutboundWidget::refreshCategoryComboBox()
     QString get_distinct_cate = "SELECT DISTINCT cate FROM Outbound WHERE otime IS NULL";
     modelCategory->setQuery(get_distinct_cate);
     ui->comboBoxCategory->setModel(modelCategory);
+}
+
+void OutboundWidget::refreshOrderTotalLabel()
+{
+    qDebug() << "Refreshing order total label view...";
+    QString s = "SELECT SUM(quantity) as %1, SUM(ppq * quantity) as %2 "
+        "FROM Outbound WHERE otime IS NULL";
+    QString get_outbound_od = s.arg(
+        tr("OrderTotalQty"), tr("OrderTotalPrice"));
+    qDebug() << get_outbound_od;
+    modelOutbound2->setQuery(get_outbound_od);
+
+    if (modelOutbound2->rowCount() > 0) {
+        QString orderTotalQty = modelOutbound2->record(0).value("OrderTotalQty").toString();
+        QString orderTotalPrice = modelOutbound2->record(0).value("OrderTotalPrice").toString();
+        ui->labelOrderTotalQtyL->setText("Total Quantity:");
+        ui->labelOrderTotalQty->setText(orderTotalQty);
+        ui->labelOrderTotalPriceL->setText("Total Price:");
+        ui->labelOrderTotalPrice->setText(orderTotalPrice);
+    } else {
+        ui->labelOrderTotalQtyL->clear();
+        ui->labelOrderTotalQty->clear();
+        ui->labelOrderTotalPriceL->clear();
+        ui->labelOrderTotalPrice->clear();
+    }
 }

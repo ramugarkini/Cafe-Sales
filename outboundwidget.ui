@@ -64,27 +64,26 @@
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="pushButtonOutbound">
-       <property name="text">
-        <string>Confirm Order</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="pushButtonOutboundRemoveLast">
-       <property name="text">
-        <string>Remove Last Item</string>
-       </property>
-      </widget>
-     </item>
-     <item>
       <spacer name="spacer">
        <property name="orientation">
         <enum>Qt::Vertical</enum>
        </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>0</width>
+         <height>0</height>
+        </size>
+       </property>
       </spacer>
      </item>
     </layout>
+   </item>
+   <item row="3" column="1">
+    <widget class="QPushButton" name="pushButtonOutbound">
+     <property name="text">
+      <string>Confirm Order</string>
+     </property>
+    </widget>
    </item>
    <item row="1" column="0">
     <widget class="QTableView" name="tableViewOutbound">
@@ -92,6 +91,76 @@
       <set>QAbstractItemView::NoEditTriggers</set>
      </property>
     </widget>
+   </item>
+   <item row="4" column="1">
+    <widget class="QPushButton" name="pushButtonOutboundRemoveLast">
+     <property name="text">
+      <string>Remove Last Item</string>
+     </property>
+    </widget>
+   </item>
+   <item row="4" column="0">
+    <layout class="QVBoxLayout">
+     <property name="spacing">
+      <number>12</number>
+     </property>
+     <property name="leftMargin">
+      <number>12</number>
+     </property>
+     <property name="topMargin">
+      <number>12</number>
+     </property>
+     <property name="rightMargin">
+      <number>12</number>
+     </property>
+     <property name="bottomMargin">
+      <number>12</number>
+     </property>
+     <item>
+      <layout class="QGridLayout" name="gridLayoutF">
+       <item row="1" column="1">
+        <widget class="QLabel" name="labelOrderTotalQtyL">
+         <property name="text">
+          <string/>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="2">
+        <widget class="QLabel" name="labelOrderTotalQty">
+         <property name="text">
+          <string/>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="3">
+        <widget class="QLabel" name="labelOrderTotalPriceL">
+         <property name="text">
+          <string/>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="4">
+        <widget class="QLabel" name="labelOrderTotalPrice">
+         <property name="text">
+          <string/>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+    </layout>
    </item>
   </layout>
  </widget>

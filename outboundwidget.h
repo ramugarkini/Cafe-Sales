@@ -21,6 +21,7 @@ private:
     Ui::OutboundWidget *ui;
     QSqlQuery *qry;
     QSqlQueryModel *modelOutbound;
+    QSqlQueryModel *modelOutbound2;
     QSqlQueryModel *modelCategory;
     void refreshOutboundTableView(const QString& qry_clause = "");
 
@@ -30,6 +31,7 @@ signals:
 
 public slots:
     void refreshCategoryComboBox();
+    void refreshOrderTotalLabel();
     void on_pushButtonQuery_clicked();
     void on_pushButtonOutbound_clicked();
     void on_pushButtonOutboundRemoveLast_clicked();
