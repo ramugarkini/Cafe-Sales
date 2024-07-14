@@ -78,27 +78,6 @@
      </item>
     </layout>
    </item>
-   <item row="3" column="1">
-    <widget class="QPushButton" name="pushButtonOutbound">
-     <property name="text">
-      <string>Confirm Order</string>
-     </property>
-    </widget>
-   </item>
-   <item row="1" column="0">
-    <widget class="QTableView" name="tableViewOutbound">
-     <property name="editTriggers">
-      <set>QAbstractItemView::NoEditTriggers</set>
-     </property>
-    </widget>
-   </item>
-   <item row="4" column="1">
-    <widget class="QPushButton" name="pushButtonOutboundRemoveLast">
-     <property name="text">
-      <string>Remove Last Item</string>
-     </property>
-    </widget>
-   </item>
    <item row="4" column="0">
     <layout class="QVBoxLayout">
      <property name="spacing">
@@ -161,6 +140,27 @@
       </layout>
      </item>
     </layout>
+   </item>
+   <item row="4" column="1">
+    <widget class="QPushButton" name="pushButtonOutbound">
+     <property name="text">
+      <string>Confirm Order</string>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="1">
+    <widget class="QPushButton" name="pushButtonOutboundRemoveLast">
+     <property name="text">
+      <string>Remove Last Item</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="0" rowspan="3">
+    <widget class="QTableView" name="tableViewOutbound">
+     <property name="editTriggers">
+      <set>QAbstractItemView::NoEditTriggers</set>
+     </property>
+    </widget>
    </item>
   </layout>
  </widget>
