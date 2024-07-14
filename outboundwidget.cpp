@@ -2,6 +2,9 @@
 #include "outboundwidget.h"
 #include "ui_outboundwidget.h"
 #include <QtDebug>
+#include <QSqlError>
+#include <QSqlQuery>
+#include <QSqlDriver>
 
 OutboundWidget::OutboundWidget(QWidget *parent) :
     QWidget(parent),
@@ -50,9 +53,9 @@ void OutboundWidget::on_pushButtonQuery_clicked()
     refreshOutboundTableView(clause);
 }
 
-void OutboundWidget::on_pushButtonOutbound2_clicked()
+void OutboundWidget::on_pushButtonOutbound_clicked()
 {
-    qDebug() << "[Inventory Widget] Outbound2 button clicked...";
+    qDebug() << "[Outbound Widget] Outbound button clicked...";
 
     // Confirm Order by SET otime
     QString s = "UPDATE Outbound SET otime = datetime('now', 'localtime') WHERE otime IS NULL";
@@ -62,9 +65,42 @@ void OutboundWidget::on_pushButtonOutbound2_clicked()
     if (success)
     {
         refreshOutboundTableView();
-        outbounded();
+        outboundedd();
     }
 }
+
+void OutboundWidget::on_pushButtonOutboundRemoveLast_clicked()
+{
+    qDebug() << "[Outbound Widget] Outbound cancel button clicked...";
+
+    // 
+    QString s = "SELECT name, quantity, time FROM Outbound WHERE otime IS NULL ORDER BY time DESC";
+    QString get_item_info = s;
+    qDebug() << get_item_info << qry->exec(get_item_info);
+
+    // Loop through all results
+    while (qry->next())
+    {
+        QString name = qry->value(0).toString();
+        int quantity = qry->value(1).toInt();
+        QString time = qry->value(2).toString();
+
+        s = "UPDATE Inventory SET quantity = quantity + %1 WHERE name = '%2'";
+        QString update_inven = s.arg(QString::number(quantity), name);
+        bool success = qry->exec(update_inven);
+        qDebug() << update_inven << success;
+
+        if (success) {
+            qDebug() << "Deleting outbound...";
+            s = "DELETE FROM Outbound WHERE time = '%1'";
+            QString del_outbound = s.arg(time);
+            qDebug() << del_outbound << qry->exec(del_outbound);
+            refreshOutboundTableView();
+            outbounded();
+        }
+    }
+}
+
 
 void OutboundWidget::refreshOutboundTableView(const QString& qry_clause/*=""*/)
 {

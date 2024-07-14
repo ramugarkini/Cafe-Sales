@@ -45,12 +45,22 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(inventory, &InventoryWidget::outbounded,
             outbound3, &Outbound3Widget::on_pushButtonQuery_clicked);
 
+    connect(outbound, &OutboundWidget::outbounded, inventory, &InventoryWidget::refreshInventoryTable);
+    connect(outbound, &OutboundWidget::outbounded, inventory, &InventoryWidget::refreshOutNameComboBox);
     connect(outbound, &OutboundWidget::outbounded, outbound, &OutboundWidget::refreshCategoryComboBox);
     connect(outbound, &OutboundWidget::outbounded, outbound, &OutboundWidget::on_pushButtonQuery_clicked);
-    connect(outbound, &OutboundWidget::outbounded, outbound2, &Outbound2Widget::refreshOrderIDLineEdit);
     connect(outbound, &OutboundWidget::outbounded, outbound2, &Outbound2Widget::on_pushButtonQuery_clicked);
     connect(outbound, &OutboundWidget::outbounded, outbound3, &Outbound3Widget::refreshCategoryComboBox);
     connect(outbound, &OutboundWidget::outbounded, outbound3, &Outbound3Widget::on_pushButtonQuery_clicked);
+    
+    connect(outbound, &OutboundWidget::outboundedd, outbound2, &Outbound2Widget::refreshOrderIDLineEdit);
+    connect(outbound, &OutboundWidget::outboundedd, inventory, &InventoryWidget::refreshInventoryTable);
+    connect(outbound, &OutboundWidget::outboundedd, inventory, &InventoryWidget::refreshOutNameComboBox);
+    connect(outbound, &OutboundWidget::outboundedd, outbound, &OutboundWidget::refreshCategoryComboBox);
+    connect(outbound, &OutboundWidget::outboundedd, outbound, &OutboundWidget::on_pushButtonQuery_clicked);
+    connect(outbound, &OutboundWidget::outboundedd, outbound2, &Outbound2Widget::on_pushButtonQuery_clicked);
+    connect(outbound, &OutboundWidget::outboundedd, outbound3, &Outbound3Widget::refreshCategoryComboBox);
+    connect(outbound, &OutboundWidget::outboundedd, outbound3, &Outbound3Widget::on_pushButtonQuery_clicked);
 }
 
 MainWindow::~MainWindow()

@@ -26,11 +26,13 @@ private:
 
 signals:
     void outbounded();
+    void outboundedd();
 
 public slots:
     void refreshCategoryComboBox();
     void on_pushButtonQuery_clicked();
-    void on_pushButtonOutbound2_clicked();
+    void on_pushButtonOutbound_clicked();
+    void on_pushButtonOutboundRemoveLast_clicked();
 };
 
 #endif // OUTBOUNDWIDGET_H

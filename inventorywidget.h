@@ -23,7 +23,6 @@ private:
     QSqlQuery *qry;
     QSqlQueryModel *model;
     QSqlQueryModel *modelName;
-    void refreshInventoryTable();
 
 signals:
     void inbounded();
@@ -34,6 +33,7 @@ private slots:
     void on_pushButtonOutbound_clicked();
 
 public slots:
+    void refreshInventoryTable();
     void refreshOutNameComboBox();
 };
 

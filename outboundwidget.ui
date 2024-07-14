@@ -64,9 +64,16 @@
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="pushButtonOutbound2">
+      <widget class="QPushButton" name="pushButtonOutbound">
        <property name="text">
         <string>Confirm Order</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButtonOutboundRemoveLast">
+       <property name="text">
+        <string>Remove Last Item</string>
        </property>
       </widget>
      </item>
